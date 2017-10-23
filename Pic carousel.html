@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>p41</title>
+	<style type="text/css">
+	#div1{
+		width: 400px;
+		height: 450px;
+		background: #ccc;
+		margin: 0 auto;
+		border: 5px solid #000;
+		position: relative;
+		top:50px;
+	}
+	#div1 a{
+		top:215px;
+		text-decoration: none;
+		text-align: center;
+		font-size: 30px;
+		font-color:#fff;
+		background: #111;
+		margin: 5px;
+		width: 40px;
+		height: 40px;
+		border: 5px solid #fff;
+		line-height: 40px;
+		font-weight: bold;
+		filter: alpha(opacity:60);opacity: 0.6;
+	}
+	#div a.hover{
+		filter: alpha(opacity:90);opacity: 0.9;
+	}
+	#next{
+		position: absolute;
+		right: 10px;
+	}
+	#prev{
+		position: absolute;
+		left: 10px;
+	}
+	#p1{
+		top:0px;
+		font-size: 20px;
+		top:50px;
+	}
+	#div2{
+		width: 100%;
+		height: 50px;
+		position: relative;
+		text-align: center;
+	}
+	#p1,#span1{
+		width: 100%;
+		height: 30px;
+		position: absolute;
+		text-align: center;
+		background: #000;
+		margin: 0px;
+		filter: alpha(opacity:80);opacity: 0.8;
+		color:#fff;
+		font-weight: bold;
+		line-height: 30px;
+	}
+	#span1{
+		bottom: 0px;
+	}
+	#img1{
+		width: 400px;
+		height: 400px;
+		top:50px;
+	}
+	#true #false{
+		position: absolute;
+	}
+	#p3{
+		display: none;
+	}
+	#p2{
+		display: none;
+	}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+	var oP=document.getElementById('p1');
+	var oSpan=document.getElementById('span1');
+	var oNext=document.getElementById('next');
+	var oPrev=document.getElementById('prev');
+	var oImg=document.getElementById('img1');
+	var oTrue=document.getElementById('true');
+	var oP2=document.getElementById('p2');
+	var oFalse=document.getElementById('false');
+	var oP3=document.getElementById('p3');
+	var arr1=["西厢记","前目的地","搏击俱乐部","记忆碎片","京东"];
+	var arr2=["素材/0.jpg","素材/1.jpg","素材/2.jpg","素材/3.jpg","素材/jd.jpg"];
+	var i=0;
+	function kk(){
+		oP.innerHTML=i+1+"/"+arr1.length;
+		oSpan.innerHTML=arr1[i];
+		oImg.src=arr2[i];
+	}
+	kk();//初始化
+	 	oTrue.onclick=function(){
+	 		oP2.style.display="block";
+	 		oP3.style.display="none";
+			oNext.onclick=function(){
+				i++;
+				if(i==arr1.length)
+					i=0;
+				kk();
+				}
+			oPrev.onclick=function(){
+				i--;
+				if (i==-1)
+					i=arr1.length-1;
+				kk();
+				}
+	 	}
+	 	oFalse.onclick=function(){
+	 		oP3.style.display="block";
+	 		oP2.style.display="none";
+	 		oNext.onclick=function(){
+				i++;
+				if(i==arr1.length){
+					alert("这已经是最后一页了");
+					i--;
+				}
+				kk();
+				}
+			oPrev.onclick=function(){
+				i--
+				if (i==-1){
+					alert("已经是第一页了，不能再往前了");
+					i++;
+				}
+				kk();
+				}
+	 	}
+	}
+	</script>
+</head>
+<body>	
+	<div id="div1">
+	<div id="div2">	
+		<input type="button" value="循环播放" id="true">
+		<input type="button" value="顺序播放" id="false"><br>
+		<span id="p2">图片可循环轮转播放</span>
+		<span id="p3">图片只能到第一张or最后一张</span>
+	</div>
+		<a href="javascript:;" id="next">></a>
+		<a href="javascript:;" id="prev"><</a>
+		<span id="span1"></span>
+		<p id="p1"></p>
+		<img id="img1">
+	</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+#textbox{
+	height: 70px;
+	width: 125px;
+	text-align: center;
+	font-size: 50px;
+}
+#but1{
+	height: 50px;
+	border-radius: 5px;
+}
+h1{
+	padding: 10px;
+	margin: 10px;
+	border-color: red;
+}
+*{
+	text-align: center;
+	
+}
+div{
+	animation:mymove 5s infinite;
+	-webkit-animation:mymove 5s infinite;
+}
+@-webkit-keyframes mymove{
+	from{top:0px;}
+	to{top:200px;}
+}
